@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technologies Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+<body>
+    
+    <main>
+      <section id="start-container">
+            <h2>Welcome to the Quiz!</h2>
+            <form id="start-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="enrollment">Enrollment Number:</label>
+                <input type="text" id="enrollment" name="enrollment" required>
+                <br>
+                <label for="group">Group:</label>
+                <input type="text" id="group" name="group" required>
+                <br>
+                <button type="button" id="start-btn">Start Quiz</button>
+            </form>
+        </section>
+        <section id="quiz-container" style="display: none;">
+            <p id="timer">Time Left: <span id="time-left">30</span> seconds</p>
+            <p id="question"></p>
+            <ul id="options">
+                <li class="option">Option 1</li>
+                <li class="option">Option 2</li>
+                <li class="option">Option 3</li>
+                <li class="option">Option 4</li>
+            </ul>
+            <button id="submit-btn">Submit Answer</button>
+            <p id="feedback"></p>
+        </section>
+        <section id="score-container" style="display: none;">
+            <p>Your Score: <span id="score">0</span></p>
+            <button id="restart-btn">Restart Quiz</button>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
